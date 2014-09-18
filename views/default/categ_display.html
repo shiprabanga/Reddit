@@ -1,0 +1,29 @@
+{{extend 'layout1.html'}}
+<ol>
+{{for i in range(len(news)):}}
+<li> 
+<a href="{{=news[i]['URL']}}"><h4>{{=news[i]['Heading']}}:</h4></a><br/>
+{{x=str(news[i]['pdate'])}}
+{{x=x.split(" ")}}
+{{y=str(news[i]['ptime'])}}
+{{y=y.split(" ")}}
+Posted on {{=x[0]}} at {{=y[1]}} <br/>
+Likes:{{=news[i]['ranking']}}<br/>
+{{if news[i]['video']!="":}}
+{{p=str(news[i]['video'])}}
+{{p=p.split('=')}}
+<iframe width="320" height="240" allowfullscreen="1" title="Youtube video player" src="//www.youtube.com/embed/{{=p[1]}}?rel=0"></iframe>
+<br/>
+{{pass}}
+<br/>
+{{if((c1!=None and news[i]['userid']==c1) or (c1!=None and c1==3)):}}
+<a href="http://127.0.0.1:8000/Assignment_2/default/del_post/{{=news[i]['id']}}/{{=c}}"><button name="Delete">DELETE</button></a>
+<a href="http://127.0.0.1:8000/Assignment_2/default/edit_post/{{=news[i]['id']}}/{{=c}}"><button name="Edit">EDIT</button></a>
+{{pass}}
+<a href="http://127.0.0.1:8000/Assignment_2/default/like_post/{{=news[i]['id']}}/{{=c}}"><button name="Like"> LIKE </button></a>
+<a href="http://127.0.0.1:8000/Assignment_2/default/dislike_post/{{=news[i]['id']}}/{{=c}}"><button name="Dislike">DISLIKE</button></a>
+<a href="http://127.0.0.1:8000/Assignment_2/default/comm_post/{{=news[i]['id']}}/{{=c}}"><button name="Comment"> COMMENT </button></a>
+</li>
+{{pass}}
+<br/><br/><br/>
+<a href='http://127.0.0.1:8000/Assignment_2/default/display'><button name="return"> CATEGORY </button></a>     

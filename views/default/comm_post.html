@@ -1,0 +1,14 @@
+{{extend 'layout1.html'}}
+<h4> Comments for this post</h4>
+<ol>
+{{for i in range(len(comments)):}}
+<li>{{=user[0]['first_name']}} : {{=comments[i]['comm']}}<br/>
+{{x=str(comments[i]['cdate'])}}
+{{x=x.split(" ")}}
+{{y=str(comments[i]['ctime'])}}
+{{y=y.split(" ")}}
+Posted on {{=x[0]}} at {{=y[1]}} <br/>
+</li>
+{{pass}}
+</ol>
+{{=form}}

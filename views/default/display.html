@@ -1,0 +1,13 @@
+{{extend 'layout1.html'}}
+{{if c==3:}}
+<a href='admin'><i class="icon-home"></i></a>
+{{pass}}
+{{if c!=3:}}
+<a href='client'><i class="icon-home"></i></a>
+{{pass}}
+<ol>
+	{{for i in range(len(categ)):}}
+	<a href="http://127.0.0.1:8000/Assignment_2/default/categ_display/{{=categ[i]['Cname']}}"><li>{{=categ[i]['Cname']}}</li><br/></a>
+	{{pass}}
+</ol>
+
